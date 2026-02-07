@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ scheme.name }}</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        font-family: "Segoe UI";
+      }
+      .card {
+        background: white;
+        width: 430px;
+        padding: 30px;
+        border-radius: 16px;
+      }
+      button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 15px;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <h2>{{ scheme.name }}</h2>
+
+      <p><strong>Benefit:</strong><br />{{ scheme.benefit }}</p>
+
+      <p><strong>Last Date:</strong> {{ scheme.last_date }}</p>
+
+      <h3>Required Documents</h3>
+      <ul>
+        {% for doc in scheme.documents %}
+        <li>{{ doc }}</li>
+        {% endfor %}
+      </ul>
+
+      <!-- AI TEXT PLACEHOLDER -->
+      <p><strong>🤖 AI Explanation (Gemini 3)</strong><br /><br /></p>
+
+      <p>
+        After analyzing your income, social category, and gender information,
+        you satisfy all the eligibility conditions for this scheme. We recommend
+        applying early and keeping all required documents prepared before the
+        application deadline.
+      </p>
+
+      <button onclick="window.open('{{ scheme.link }}')">
+        Visit Official Scheme Website
+      </button>
+
+      <p style="text-align: center; margin-top: 10px">
+        <a href="/">← Back</a>
+      </p>
+    </div>
+  </body>
+</html>
